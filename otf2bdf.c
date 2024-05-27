@@ -877,7 +877,7 @@ generate_font(FILE *out, char *iname, char *oname)
         wd = ex - sx;
         ht = ey - sy;
         x_off = sx + face->glyph->bitmap_left;
-        y_off = sy + face->glyph->bitmap_top - face->glyph->bitmap.rows;
+        y_off = sy + face->glyph->bitmap_top - face->glyph->bitmap.rows; // this might be wrong and should be: y_off = face->glyph->bitmap_top - ey;  // see https://github.com/olikraus/u8g2/issues/2406
 
         bbx.maxas = MAX(bbx.maxas, ht + y_off);
         bbx.maxds = MAX(bbx.maxds, -y_off);
